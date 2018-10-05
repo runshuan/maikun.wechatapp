@@ -1,0 +1,44 @@
+<!-- checkout.wxml -->
+<!-- 地址选择 -->
+<view class="dingdan">
+	<view class="address-container">
+		<!-- 用户尚未添加地址时 -->
+		<!-- <view class="address"  > -->
+      <view class="selectInput"bindtap="selectAddress">
+        <image src="/image/location.png" class="location" />
+        <input class="inputAddress"placeholder="请选择一个收货地址"></input>
+      </view>
+      <!-- <view class="arrow"wx:for="{{CacheAddress}}"wx:key="id"data-index="{{index}}"bindtap="aaa"> -->
+      <view class="arrow"data-index="{{index}}"bindtap="aaa"wx:if="{{isHaveAddress}}">      
+        <view class="detail">{{addressInfo.realname}}{{addressInfo.mobile}}</view>
+        <view class="addres">{{addressInfo.addres.name}}{{addressInfo.addres.desc}}{{addressInfo.detail}}</view>
+      </view>
+    <!-- </view> -->
+      
+	<!-- 商品清单 -->
+	<view class="info">
+		<!-- 店铺信息 -->
+		<view class="header"wx:for="{{takeawayHead}}"wx:for-item="head"wx:key="*this">
+			<image src="{{head.shopLogo}}" class="logo" />
+			<view class="title">{{head.shopName}}</view>
+		</view>
+		<!-- 清单 -->
+		<view class="list"wx:for="{{arr}}" wx:key="*this">
+      <!-- <image class="icon" src="{{item.icon}}"></image> -->
+			<view class="name">{{item.name}}</view>
+			<view class="count">x{{item.count}}</view>
+      <view class="paymentaaa">￥{{item.total}}</view>
+		</view>
+	</view>
+		<!-- 总计 -->
+		<!-- <view class="item"wx:for="{{arr}}">
+			<view class="amount">{{id.count}}</view>
+		</view> -->
+	</view>
+</view>
+  
+<!-- 提交订单 -->
+<view class="footer"wx:for="{{arr}}"wx:key="*this">
+	<view class="payment">{{item.total}}</view>
+	<view class="checkout" bindtap="payment">提交订单</view>
+</view>

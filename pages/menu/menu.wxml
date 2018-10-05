@@ -1,0 +1,126 @@
+<view class="takeaway">
+  <!-- 头部 -->
+   <view class="takeawayHead">
+    <view class="shopLogo">
+      <image class="logo" src="{{takeawayHead.shopLogo}}"></image>
+    </view>
+    <view class="shopText">
+      <view class="shopName">{{takeawayHead.shopName}}</view>
+      <view class="shopNotice">
+        <view class="noticePic">
+          <image class="pic" src="{{takeawayHead.noticePic}}"></image>
+        </view>
+        <view bindtap="asas" class="noticeText" style="{{orientation}}:{{marqueeDistance}}px">
+        {{takeawayHead.noticeText}}
+        </view>
+      </view>
+      <view class="shopOffer">{{takeawayHead.shopOffer}}</view>
+    </view>
+   </view>
+  <!-- 顶部导航 -->
+   <view class="takeawayTopNav">
+      <text wx:for-item="hd" wx:for="{{topNav}}" data-hd="{{index}}" class="topNavStyle {{currentTab==index ? 'active' : ''}}" wx:key="*this" bindtap="hdNavbarTap">{{hd}}</text>
+   </view>
+  <!-- 新用户 -->
+   <view class="takeawayNew" hidden="{{currentTab!==0}}">
+    <view class="newPic">
+      <image class="npic" src="{{takeawayNew.npic}}"></image>
+    </view>
+    <view class="newText">{{takeawayNew.newText}}</view>
+    <view class="dropPic">
+      <image class="dpic" src="{{takeawayNew.dpic}}" bindtap="newOffer"></image>
+    </view>
+   </view>
+  <!-- 菜单 -->
+    <!-- 左导航 -->
+      <view class="content-container">
+        <scroll-view class="classify-container" scroll-y="true">
+          <view class="classify {{classifySeleted==classify.id?'active':''}}" wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
+            <view class="name">{{classify.classifyName}}</view>
+          </view>
+        </scroll-view>
+    <!-- 菜单栏 -->
+        <scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+          <view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" id="{{classify.id}}">
+            <view class="title">{{classify.classifyName}}</view>
+            <view class="goods" wx:for="{{classify.goods}}" wx:for-item="id" wx:key="*this">
+              <image class="pic" src="{{goods[id].pic}}"></image>
+                <view class="menudetails">
+                  <view class="name ellipsis">{{goods[id].name}}</view>
+                  <view class="sold">月售{{goods[id].sold}}</view>
+                  <view class="pricetxt">
+                    <text class="price">￥{{goods[id].price}}</text>
+                    <text class="oldprice">￥{{goods[id].oldprice}}</text>
+                  </view>
+                </view>
+              <!--加减器-->
+                <view class="cartcontrol-wrap">
+                  <view class="addCart" bindtap="tapAddCart" data-id="{{id}}">
+                    <block wx:for="{{shoppingCartGoodsId}}" wx:for-item="goodId">
+                      <view bindtap="decreaseGoodToCartFn" class="cart-decrease {{(goods[id].id == goodId) ? '': 'hidden'}}">
+                        <!-- 删除按钮 -->
+                          <image class="cart-decrease" id="decrease_{{goods[id].id}}" src="/image/delete.png"></image>
+                          <view class="inner icon-remove_circle_outline"></view>
+                      </view>
+                    </block>
+                    <!-- 数量 -->
+                      <text class="cart-count">{{(shoppingCart[goods[id].id]) ? shoppingCart[goods[id].id]: ""}}</text> 
+                    <!-- 添加按钮 -->
+                      <image src="/image/addto.png" bindtap="touchOnGoods" id="add_{{goods[id].id}}" class="cart-add icon-add_circle"></image>
+                  </view>
+                </view>
+              <!-- ----------------------- -->
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    <!-- 购物车栏 -->
+      <view class="shopcart">
+        <view class="content">
+          <view class="content-left" bindtap="showShopCartFn">
+            <view class="logo-wrapper">
+              <image class="logo" src="/image/{{(totalNum > 0) ? 'selected': 'normal'}}.png" style="background-image:url(/image/{{(totalNum > 0) ? 'selected': 'normal'}}.png)"> <i class="icon-shopping_cart"></i></image>
+              <view class="num" wx:if="{{totalNum}}">{{totalNum}}</view>
+            </view>
+            <view class="price {{(totalPay > 0)? 'highlight':''}}">￥{{totalPay}}</view>
+          </view>
+          <view class="content-right">
+            <view bindtap="goPayFn" class="pay {{(totalPay > 0) ? 'payClass':''}}">去结算</view>
+          </view>
+        </view>
+      </view>
+    <!-- 窗口 -->
+        <view class="shopcart-list {{(showShopCart && (totalPay > 0))?'':'hidden'}}">
+          <view class="list-header">
+            <view class="title">
+              <text class="title-line">已选商品</text>
+              <text class="empty" bindtap="clearShopCartFn">清空</text>
+            </view>
+          </view>
+          <scroll-view scroll-y style="max-height: 257px;">
+            <view class="list-content">
+              <view>
+                <view class="food" wx:for="{{chooseGoodArr}}" wx:for-item="good">
+                  <view class="name">{{good.name}}</view>
+                  <view class="price"><view>￥{{good.price}}</view></view>
+                  <view class="cartcontrol-wrapper">
+                    <view class="cartcontrol">
+                      <view bindtap="decreaseGoodToCartFn" class="cart-decrease">
+                        <image id="decrease_{{good.id}}" class="cart-decrease" src="/image/subtract.png"></image>
+                        <view class="inner icon-remove_circle_outline"></view>
+                      </view>
+                      <text class="cart-count">{{(shoppingCart[good.id]) ? shoppingCart[good.id]: ""}}</text>
+                      <image src="/image/addto.png" bindtap="addGoodToCartFn" id="add_{{good.id}}" class="cart-add icon-add_circle"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+      </view>
+  <!--小球的实现-->
+    <view class="good_box" hidden="{{hide_good_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
+    </view>
+    <!-- <view style="height:86px;"></view> -->
+</view>
+<!-- <view bindtap="showShopCartFn" class="cover  {{(showShopCart && (totalPay > 0))?'':'hidden'}}"></view> -->

@@ -1,0 +1,104 @@
+/* 容器 */
+.takeaway {width: 100%;} 
+/* 头部 */
+.takeawayHead {width: 100%;height: 20%;display: flex;background: red;}
+/* 头部logo */
+.takeawayHead .shopLogo {width: 25%;height: 200rpx;}
+.shopLogo .logo {width: 100%;height: 100%;}
+/* 头部text */
+.takeawayHead .shopText {width: 60%;height: 200rpx;align-items: stretch;padding-left: 5%; direction: left; behavior: scroll;}
+/* 店名 */
+.shopText .shopName {width: 100%;height: 40%;font-size: 45rpx;font-weight: bold;color: white;}
+/* 通知图标or文本 */
+.shopText .shopNotice{width: 100%;height: 35%;display: flex;}
+.shopNotice .noticePic {float: left; width: 10%;height: 50rpx;}
+.noticePic .pic {float: left;width: 100%;height: 100%;}
+.shopNotice .noticeText {width: 200rpx;white-space: nowrap;color: white;font-size: 30rpx;line-height: 50rpx;position: absolute;}
+/* 优惠 */
+.takeawayHead .shopText .shopOffer {width: 100%;height: 15%;color: white;font-size: 25rpx;}
+/* ----------------------------------------------------------------------------------------------- */
+/* 顶部导航 */
+.takeawayTopNav {display: flex;height: 80rpx;}
+.topNavStyle{position: relative;flex: auto;text-align: center;line-height: 80rpx;}
+.topNavStyle.active{color: red;}
+.topNavStyle.active:after{content: "";display: block;position: absolute;bottom: 0;left: 0;right: 0;height: 6rpx;background: red;}
+/* 新用户 */
+.takeawayNew {width: 100%;height: 50rpx;display: flex;}
+.takeawayNew .newPic {width: 50rpx;height: 50rpx;padding-right: 15rpx;}
+.newPic .npic {width: 100%;height: 100%;}
+.takeawayNew .newText {font-size: 30rpx;line-height: 50rpx;flex-grow: 2;}
+.takeawayNew .dropPic {width: 50rpx;height: 50rpx;}
+.dropPic .dpic {width: 100%;height: 100%;}
+/* 左导航 */
+.content-container {display: flex;height: 100%;width:100%;box-sizing: border-box;padding-bottom: 100rpx;overflow: scroll;position:absolute;}
+.classify-container {width: 160rpx;background: #efefef;height: 100%;overflow: scroll;}
+.classify-container .classify {height: 140rpx;border-bottom: 1px dashed #aaa;display: flex;justify-content: center;align-items: center;}
+.classify-container .classify.active {background: #fff;}
+.classify-container .classify .name {font-size: 30rpx;color: #646464;}
+/* 菜单栏 */
+.goods-container {flex: 1;background: #fff;height: 100%;overflow: scroll;}
+.goods-container .title {padding: 20rpx 25rpx;color: #646464;font-size: 30rpx;line-height: 30rpx;background: #f7f7f7;}
+.goods-container .goods {position: relative;padding: 20rpx 30rpx;font-size: 36rpx;line-height: 40rpx;border-bottom: 1px solid #f7f7f7;display: flex;}
+.goods-container .goods .pic {width: 30%;height: 150rpx;margin-right: 20rpx;}
+.menudetails {flex-direction: column;width: 45%}
+.goods-container .goods .name {color: #000;font-size: 36rpx;line-height: 46rpx;font-weight: bold;}
+.goods-container .goods .sold {color: #989898;font-size: 30rpx;line-height: 46rpx;}
+.goods-container .goods .price {color: #f45044;font-size: 33rpx;line-height: 46rpx;font-weight: bold;}
+.goods-container .goods .oldprice {color: #989898;text-decoration:line-through;font-size: 25rpx;}
+/* .goods-container .goods .addCart {position: absolute;right: 30rpx;bottom: 30rpx;width: 50rpx;height: 50rpx;border-radius: 50%;} */
+/* .goods-container .goods .addCart image {pointer-events: none;position: absolute;width: 50rpx;height: 50rpx;} */
+/* 加减器 */
+.cartcontrol-wrap{position: absolute;right: 30rpx;bottom: 10rpx;}
+.addCart{font-size: 0;}
+/* 删除 */
+.cart-decrease{display:inline-block;opacity:1;transform:translate3d(0, 0, 0);width:50rpx;height:50rpx;background-repeat:no-repeat;background-size: contain;background-position:center;padding:0;float: left;}
+.cart-add{width:25px;height:25px;display: inline-block;line-height: 24px;font-size: 24px;color: rgb(0, 160, 220);background-repeat:no-repeat;background-size: contain;background-position:center;}
+.inner{display: inline-block;line-height: 48rpx;font-size: 48rpx;color: rgb(0, 160, 220);transition: all 0.4s linear;transform: rotate(0);}
+.inner.move-enter-active, .inner.move-leave-active{transition: all 0.4s linear;}
+.inner .move-enter, .inner.move-leave-active{opacity: 0;transform: translate3d(24px, 0, 0);}
+.inner{transform: rotate(180deg);}
+/* 数量 */
+.cart-count{display:inline-block;vertical-align:top;width:60rpx;padding-top:2px;line-height:24px;text-align:center;color:rgb(147, 153, 159);font-size:17px;float: left;}
+
+
+/*底部的购物车*/
+.shopcart{position: fixed;left: 0;bottom: 0;z-index: 50;width: 100%;height: 48px;}
+.shopcart .content{display: flex;background: #141d27;font-size: 0;color: rgba(255, 255, 255, 0.4);}
+.shopcart .content .content-left{flex: 1}
+.shopcart .logo-wrapper{display: inline-block;vertical-align: top;position: relative;top: -10px;margin: 0 12px;padding: 6px;width: 56px;height: 56px;box-sizing: border-box;border-radius: 50%;background: #141d27;}
+.shopcart .logo{width: 100%;height: 100%;border-radius: 50%;text-align: center;background: #2b343c;background-size: 100% 100%;}
+.shopcart .logo.highlight{background: rgb(0, 160, 220);}
+.shopcart{line-height: 44px;font-size: 24px;color: #80858a;}
+.shopcart.highlight{color: #fff;}
+.shopcart .num{position: absolute;top: 0;right: 0;width: 24px;height: 16px;line-height: 16px;text-align: center;border-radius: 16px;font-size: 9px;font-weight: 700;color: #fff;background: rgb(240, 20, 20);box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);}
+.shopcart .price{display: inline-block;vertical-align: top;margin-top: 12px;line-height: 24px;padding-right: 12px;box-sizing: border-box;font-size: 16px;font-weight: 700;}
+.shopcart .price.highlight{color: #fff;}
+.shopcart .content-right{flex: 0 0 105px;width: 105px;}
+.content-right .pay{height: 48px;line-height: 48px;text-align: center;font-size: 12px;font-weight: 700;background: #2b333b;}
+.content-right .pay.enough{background: #00b43c;color: #fff;}
+/*点击购物车弹出来的购买物品的列表*/
+.shopcart-list{position:absolute;left:0;bottom:49px;z-index:-1;width:100%;background: #fff;}
+.food{border-bottom: 1px solid rgba(7, 17, 27, 0.1);}
+.list-header{height: 40px;line-height: 40px;padding: 0 18px;background: #f3f5f7;border-bottom: 1px solid rgba(7, 17, 27, 0.1);}
+.list-header .title{float: left;font-size: 14px;color: rgb(7, 17, 27);width: 100%;}
+.list-header .title .title-line{border-left:3px solid #0085CF;margin:10px 0;height:20px;line-height:20px;padding-left:6px;}
+.list-header .empty{float: right;font-size: 12px;color: #666;}
+.list-content{padding: 0 18px;overflow: hidden;background: #fff;}
+.list-content .food{position: relative;padding: 12px 0;}
+.list-content .name{line-height: 24px;font-size: 14px;color: rgb(7, 17, 27);}
+.list-content .price{position: absolute;right: 90px;bottom: 12px;line-height: 24px;font-size: 14px;font-weight: 700;color: #666;}
+.list-content .cartcontrol-wrapper{position: absolute;right: 0;bottom: -10px;}
+.content-right .pay.payClass{color: #fff;background: rgba(31,166,241,1);}
+.cover{height: 100%;width: 100%;position: absolute;top: 0;left: 0;background: #000;opacity:0.5;}
+/*抛物线动画*/
+.good_box{
+  width: 18px;
+  height: 18px;
+  position: fixed;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  z-index: +99;
+  background:rgba(0,133,207,1);
+}

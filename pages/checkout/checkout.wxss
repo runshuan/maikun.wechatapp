@@ -1,0 +1,79 @@
+/*地址容器*/
+.dingdan {
+  /* background: #dfdfdf;   */
+}
+.address-container {
+	margin-bottom: -10px;
+}
+/*收货地址*/
+.address {
+	display: flex;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background: white;
+  flex-direction: column;
+}
+.selectInput {
+  display: flex;
+}
+.location{
+  width: 50rpx;
+  height: 50rpx;
+}
+/*底部操作区域*/
+.footer {
+	display: flex;
+	flex-direction: row;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: white;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	font-size: 16px;
+}
+.footer .payment {
+	width: 70%;
+	background: #3d3d3f;
+	padding-left: 15px;
+}
+.footer .payment:before {
+	content: "待支付￥"
+}
+.footer .checkout {
+	width: 30%;
+	background: #38ca73;
+	text-align: center;
+}
+/* 店铺信息 */
+.info {
+  background: white;
+}
+.logo {
+  width: 60rpx;
+  height: 60rpx;
+  background: red;
+}
+/* 商家logo，名字 */
+.header {
+  display: flex;
+}
+/* 详情 */
+.list {
+  display: flex;
+}
+.list .icon{
+  width: 50rpx;
+  height: 50rpx;
+  flex-grow: 0;
+}
+.list .name {
+flex-grow: 2;
+}
+.list  .count{
+  flex-grow: 1;
+}
+.list  .total{
+  flex-grow: 1;
+}

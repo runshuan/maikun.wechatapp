@@ -1,0 +1,18 @@
+<view class="search-top-input">
+      <input type="text" placeholder="搜索公司/职位" auto-focus="true" value="{{inputsearch}}" 
+      bindconfirm="search"
+      bindinput="inputSearchTap"
+      data-index="{{index}}"/>
+ </view>
+ 
+ <view class="search-history" wx:if="{{status}}">
+        <view class="search-history-title">
+              <text>历史搜索</text>
+              <image src="../../images/delete.png" bindtap="deleteHistory"></image>
+        </view>
+        <view class="search-history-detail" >
+              <view class="history-detail" wx:for="{{history}}" wx:key="{{item}}" bindtap="historySearch" data-index="{{index}}">
+                    <text class="detail" >{{item}}</text>
+              </view>
+        </view>
+ </view>

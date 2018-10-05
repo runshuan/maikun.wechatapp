@@ -1,0 +1,50 @@
+/*地址列表*/
+
+.listview {
+  width: 100%;
+  height: 200rpx;
+  border: 5rpx solid #dfdfdf;
+  display: flex;
+  align-items: center;
+}
+.addre {
+  width: 90%;
+  flex-direction: column;
+}
+/*编辑图标*/
+.ft {
+  width: 10%;
+  height: 30px;
+  margin: 10px;
+}
+
+/*底部添加地址*/
+
+.add-address {
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.add-address .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.add-address .caption {
+  font-size: 14px;
+  color: #09f;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/*.底部添加地址*/

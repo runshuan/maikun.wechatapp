@@ -1,0 +1,14 @@
+<!-- 地址列表 -->
+<view class="listview" wx:for="{{addressList}}"wx:for-index="index"wx:for-item="item" wx:key="*this">
+  <image class="ft" src="/image/edit.png" bindtap="edit" data-index="{{listid}}" />
+  <view class="addre"bindtap="CacheAddress" data-index="{{index}}">
+    <view class="detail">{{item.realname}}{{item.mobile}}</view>
+    <view class="addres">{{item.addres.name}}{{item.addres.desc}}</view>
+  </view>
+</view>
+
+<!-- 添加按钮 -->
+<view class="add-address" bindtap="add">
+	<image src="/image/addto.png" class="icon" />
+	<view class="caption">新增地址</view>
+</view>
